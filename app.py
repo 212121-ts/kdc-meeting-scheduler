@@ -920,13 +920,7 @@ if __name__ == '__main__':
     # Get port from environment variable for production
     port = int(os.environ.get('PORT', 5000))
     
-    # Force recreate templates with KDC branding
-    if os.path.exists('templates'):
-        import shutil
-        shutil.rmtree('templates')
-        print("🔄 Removing old templates...")
-    
-    # Create templates with new branding
+    # Always ensure templates exist - especially important for production
     create_templates()
     
     # Initialize database
@@ -945,3 +939,7 @@ if __name__ == '__main__':
     else:
         # Development settings
         app.run(debug=True, host='0.0.0.0', port=port)
+
+# Also ensure templates are created when module is imported (for gunicorn)
+create_templates()
+init_db()
