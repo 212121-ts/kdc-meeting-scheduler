@@ -195,7 +195,7 @@ Ideas for version 2.0:
 
 ## 📝 License
 
-This project is open source. Feel free to modify and use for your needs!
+Please do not modify this yet. Currently not open source yet.
 
 ## 🤝 Support
 
